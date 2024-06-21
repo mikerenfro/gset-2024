@@ -2,6 +2,7 @@
 echo '"Good" runs:'
 echo "- OpenMP"
 for cpt in 1 2 4; do
+    echo "srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=${cpt} --threads-per-core=1 ./pi_omp"
     srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=${cpt} --threads-per-core=1 ./pi_omp
 done
 
@@ -11,6 +12,7 @@ for nodes in 1 2; do
     for tpn_cpt in ${tpn_cpt_list}; do
         tpn=$(echo ${tpn_cpt} | cut -d, -f1)
         cpt=$(echo ${tpn_cpt} | cut -d, -f2)
+        echo "srun --nodes=${nodes} --ntasks-per-node=${tpn} --cpus-per-task=${cpt} --threads-per-core=1 ./pi_omp_mpi"
         srun --nodes=${nodes} --ntasks-per-node=${tpn} --cpus-per-task=${cpt} --threads-per-core=1 ./pi_omp_mpi
     done
 done
@@ -18,5 +20,6 @@ done
 echo '"Bad" runs:'
 echo "- OpenMP"
 for cpt in 1 2 4 8; do
+    echo "srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=${cpt} --threads-per-core=2 ./pi_omp"
     srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=${cpt} --threads-per-core=2 ./pi_omp
 done
