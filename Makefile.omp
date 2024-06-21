@@ -1,0 +1,6 @@
+# https://stackoverflow.com/a/2481326
+
+include Makefile.common
+
+CPPSRCS=$(wildcard *_omp.cpp)
+CSRCS=$(wildcard *_omp.c)

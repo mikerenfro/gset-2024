@@ -1,0 +1,9 @@
+# https://stackoverflow.com/a/2481326
+
+include Makefile.common
+
+CXX=mpic++
+CC=mpicc
+
+CPPSRCS=$(wildcard *_mpi.cpp)
+CSRCS=$(wildcard *_mpi.c)
