@@ -1,5 +1,5 @@
-CXXFLAGS=-fopenmp
-CFLAGS=-fopenmp
+CXXFLAGS=-fopenmp -lm
+CFLAGS=-fopenmp -lm
 
 RM=rm -f
 empty:=
