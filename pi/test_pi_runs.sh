@@ -17,6 +17,6 @@ done
 
 echo '"Bad" runs:'
 echo "- OpenMP"
-for cpt in 1 2 4; do
+for cpt in 1 2 4 8; do
     srun --nodes=1 --ntasks-per-node=1 --cpus-per-task=${cpt} --threads-per-core=2 ./pi_omp
 done
